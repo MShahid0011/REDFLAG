@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Threats — Red Flag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="app-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">&#9873;</span>
+      <span class="brand-text">RED<span class="brand-accent">FLAG</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="about.html" data-nav="about">About Us</a>
+      <a href="how-it-works.html" data-nav="how">How It Works</a>
+      <a href="threats.html" data-nav="threats">Live Threats</a>
+      <a href="quiz.html" data-nav="quiz" class="nav-cta">Start Quiz</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+  </div>
+</header>
+
+<main class="app-root wide">
+
+  <section class="page-intro">
+    <p class="eyebrow">Live Threats</p>
+    <h1 class="page-title">What's actually happening right now</h1>
+    <p class="page-intro-body">
+      A snapshot of real, current social engineering and phishing activity, pulled from
+      public security reporting. This page reflects information gathered on
+      <strong>June 23, 2026</strong> &mdash; refresh your research periodically, since the
+      threat landscape moves fast.
+    </p>
+    <span class="live-badge"><span class="live-dot"></span> Snapshot as of June 23, 2026</span>
+  </section>
+
+  <!-- KEY METRICS -->
+  <section class="section">
+    <p class="eyebrow">Current scale</p>
+    <h2 class="section-title">Phishing, by the numbers</h2>
+    <div class="threat-stats-grid">
+      <div class="threat-stat-card">
+        <span class="threat-stat-num">3.4B</span>
+        <span class="threat-stat-label">Phishing emails sent every day worldwide</span>
+        <span class="threat-stat-source">Keepnet / VIPRE, 2025</span>
+      </div>
+      <div class="threat-stat-card">
+        <span class="threat-stat-num">82.6%</span>
+        <span class="threat-stat-label">Of phishing emails are now AI-generated</span>
+        <span class="threat-stat-source">Keepnet / VIPRE, 2025</span>
+      </div>
+      <div class="threat-stat-card">
+        <span class="threat-stat-num">14&times;</span>
+        <span class="threat-stat-label">Surge in AI-generated phishing reported by Hoxhunt heading into 2026</span>
+        <span class="threat-stat-source">Hoxhunt 2026 Trends Report</span>
+      </div>
+      <div class="threat-stat-card">
+        <span class="threat-stat-num">$25B</span>
+        <span class="threat-stat-label">Estimated annual global losses from phishing</span>
+        <span class="threat-stat-source">SentinelOne, 2026</span>
+      </div>
+      <div class="threat-stat-card">
+        <span class="threat-stat-num">442%</span>
+        <span class="threat-stat-label">Increase in vishing (voice phishing) attacks, H2 2024</span>
+        <span class="threat-stat-source">CrowdStrike 2025</span>
+      </div>
+      <div class="threat-stat-card">
+        <span class="threat-stat-num">21 sec</span>
+        <span class="threat-stat-label">Median time for someone to click a phishing link after receiving it</span>
+        <span class="threat-stat-source">Verizon DBIR, 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING TACTICS -->
+  <section class="section section-muted">
+    <p class="eyebrow">Trending right now</p>
+    <h2 class="section-title">Tactics on the rise in 2026</h2>
+    <div class="tactic-list">
+      <div class="tactic-row">
+        <span class="tactic-tag">AITM</span>
+        <div class="tactic-text">
+          <h3>Adversary-in-the-Middle phishing</h3>
+          <p>Attackers mirror real login flows to capture both a password and the active session cookie, bypassing MFA entirely rather than trying to defeat it directly.</p>
+        </div>
+      </div>
+      <div class="tactic-row">
+        <span class="tactic-tag">QUISHING</span>
+        <div class="tactic-text">
+          <h3>QR-code phishing</h3>
+          <p>Malicious QR codes embedded in emails, fake parking notices, and delivery slips push victims to phishing pages through a phone's browser, where links are harder to inspect.</p>
+        </div>
+      </div>
+      <div class="tactic-row">
+        <span class="tactic-tag">CALENDAR</span>
+        <div class="tactic-text">
+          <h3>Calendar invite phishing</h3>
+          <p>Fake renewal notices and meeting invites are inserted directly into calendar apps, exploiting the trust users place in scheduling tools to slip past email filters.</p>
+        </div>
+      </div>
+      <div class="tactic-row">
+        <span class="tactic-tag">BEC</span>
+        <div class="tactic-text">
+          <h3>Business Email Compromise</h3>
+          <p>Impersonated executives or vendors request urgent wire transfers or updated banking details. The FBI logged $2.77B in reported BEC losses from just over 21,000 complaints in a single year.</p>
+        </div>
+      </div>
+      <div class="tactic-row">
+        <span class="tactic-tag">DEVICE CODE</span>
+        <div class="tactic-text">
+          <h3>Device-code phishing</h3>
+          <p>Attackers abuse legitimate "device login" authentication flows to trick users into approving access without ever stealing a password.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT HEADLINES -->
+  <section class="section">
+    <p class="eyebrow">Recent headlines</p>
+    <h2 class="section-title">From the past few weeks</h2>
+    <p class="section-note">Summarized from public security reporting. Source links included &mdash; verify directly for full details.</p>
+
+    <div class="headline-list">
+
+      <a class="headline-card" href="https://www.bleepingcomputer.com/" target="_blank" rel="noopener">
+        <span class="headline-date">Jun 19, 2026</span>
+        <h3>Texas Parks &amp; Wildlife Department breach exposes 3M+ records</h3>
+        <p>A breach at a license-system vendor exposed personal information for more than three million individuals.</p>
+        <span class="headline-source">BleepingComputer &rarr;</span>
+      </a>
+
+      <a class="headline-card" href="https://thehackernews.com/" target="_blank" rel="noopener">
+        <span class="headline-date">Jun 16, 2026</span>
+        <h3>Fake Microsoft security alerts used to deliver new NarwhalRAT malware</h3>
+        <p>A North Korea-linked group (ScarCruft / APT37) used spear-phishing emails impersonating Microsoft account security notifications to deliver previously unseen malware.</p>
+        <span class="headline-source">The Hacker News &rarr;</span>
+      </a>
+
+      <a class="headline-card" href="https://www.databreachtoday.com/" target="_blank" rel="noopener">
+        <span class="headline-date">Jun 19, 2026</span>
+        <h3>Marketing platform Klue breached via compromised legacy credential</h3>
+        <p>Attackers used a single compromised legacy credential to obtain OAuth tokens and pull customer data from connected Salesforce and Gong instances.</p>
+        <span class="headline-source">DataBreachToday &rarr;</span>
+      </a>
+
+      <a class="headline-card" href="https://research.checkpoint.com/2026/8th-june-threat-intelligence-report/" target="_blank" rel="noopener">
+        <span class="headline-date">Jun 8, 2026</span>
+        <h3>DentaQuest discloses breach after ShinyHunters data leak</h3>
+        <p>Around 2.6 million accounts were exposed, including names, emails, government IDs, and health insurance details, after the ShinyHunters group leaked exfiltrated data.</p>
+        <span class="headline-source">Check Point Research &rarr;</span>
+      </a>
+
+      <a class="headline-card" href="https://www.swktech.com/swk-cybersecurity-news-recap-june-2026/" target="_blank" rel="noopener">
+        <span class="headline-date">Jun 2026</span>
+        <h3>ShinyHunters claims breach of 100+ Oracle PeopleSoft servers</h3>
+        <p>The group claimed to have compromised PeopleSoft servers across more than 100 organizations, mostly colleges and universities, stealing large volumes of student records.</p>
+        <span class="headline-source">SWK Technologies &rarr;</span>
+      </a>
+
+      <a class="headline-card" href="https://blog.google/innovation-and-ai/technology/safety-security/fraud-scams-advisory-june-2026/" target="_blank" rel="noopener">
+        <span class="headline-date">Jun 2026</span>
+        <h3>Google advisory: scam apps abusing "invisible pages" in cloud docs</h3>
+        <p>Google's June 2026 fraud advisory details scammers hosting phishing instructions inside hidden pages of legitimate cloud documents to evade standard web filters.</p>
+        <span class="headline-source">Google Safety &amp; Security Blog &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- HOW TO STAY CURRENT -->
+  <section class="section section-muted">
+    <p class="eyebrow">Stay current</p>
+    <h2 class="section-title">Where this data comes from</h2>
+    <p class="section-note" style="margin-bottom: 24px;">
+      This page is a manually curated snapshot, not a live data feed. For ongoing monitoring,
+      these are reputable, frequently updated sources worth following directly:
+    </p>
+    <div class="source-grid">
+      <a class="source-chip" href="https://thehackernews.com/" target="_blank" rel="noopener">The Hacker News</a>
+      <a class="source-chip" href="https://www.bleepingcomputer.com/" target="_blank" rel="noopener">BleepingComputer</a>
+      <a class="source-chip" href="https://www.databreachtoday.com/" target="_blank" rel="noopener">DataBreachToday</a>
+      <a class="source-chip" href="https://research.checkpoint.com/" target="_blank" rel="noopener">Check Point Research</a>
+      <a class="source-chip" href="https://www.cisa.gov/news-events/cybersecurity-advisories" target="_blank" rel="noopener">CISA Advisories</a>
+      <a class="source-chip" href="https://www.ic3.gov/" target="_blank" rel="noopener">FBI IC3</a>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2>Put this knowledge to the test</h2>
+    <p>See if you can spot the same tactics described above in 12 realistic cases.</p>
+    <a href="quiz.html" class="btn btn-primary btn-large">Begin Review &rarr;</a>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+    <div class="footer-content">
+
+        <h3 class="footer-logo">
+            RED<span class="brand-accent">FLAG</span>
+        </h3>
+
+        <p class="footer-tagline">
+            Cybersecurity Awareness & Social Engineering Detection
+        </p>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-copy">
+            © 2026 REDFLAG • Educational Cybersecurity Simulation
+        </p>
+
+    </div>
+</footer>
+
+<script src="static/js/nav.js"></script>
+</body>
+</html>

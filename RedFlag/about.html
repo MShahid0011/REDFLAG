@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Red Flag</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="app-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">&#9873;</span>
+      <span class="brand-text">RED<span class="brand-accent">FLAG</span></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="about.html" data-nav="about">About Us</a>
+      <a href="how-it-works.html" data-nav="how">How It Works</a>
+      <a href="threats.html" data-nav="threats">Live Threats</a>
+      <a href="quiz.html" data-nav="quiz" class="nav-cta">Start Quiz</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      &#9776;
+    </button>
+  </div>
+</header>
+
+<main class="app-root wide">
+
+  <!-- Builder + Why We Built Section -->
+  <section class="section">
+    <div class="two-col">
+
+      <!-- LEFT COLUMN -->
+      <!-- LEFT COLUMN -->
+<div class="builder-card">
+
+    <div class="builder-photo">
+        <img
+            src="sp.jpg"
+            alt="Shahid Ibrahim Patel"
+            id="builder-photo-img"
+            onerror="this.style.display='none'; document.getElementById('builder-photo-fallback').style.display='flex';"
+        >
+
+        <div class="builder-photo-fallback" id="builder-photo-fallback">
+            SP
+        </div>
+    </div>
+
+    <p class="builder-label">Built by</p>
+
+    <h3 class="builder-name">
+        Shahid Ibrahim Patel
+    </h3>
+
+    <p class="builder-college">
+        S. S. Agrawal Institute of Engineering &amp; Technology
+    </p>
+
+    <p class="builder-role">
+        Cybersecurity Intern &middot; Project Developer
+    </p>
+
+    <br>
+
+    <div class="builder-extra">
+
+        <hr style="margin:20px 0; opacity:0.2;">
+
+        <h4 style="margin-bottom:12px;">Mission</h4>
+
+        <p>
+            To help students, professionals, and everyday internet users
+            recognize phishing attempts, impersonation scams, urgency tactics,
+            and social engineering attacks before they cause harm.
+        </p>
+
+        <br>
+        <hr style="margin:20px 0; opacity:0.2;">
+
+
+    </div>
+
+</div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="two-col-text">
+
+        <p class="eyebrow">About Us</p>
+
+        <h1 class="page-title">
+          Why We Built Red Flag
+        </h1>
+
+        <p>
+          Security teams can patch software. They can't patch attention.
+          Social engineering succeeds by targeting judgment in the moment —
+          urgency, authority, trust, and fear rather than a technical flaw.
+          The best defense isn't a firewall; it's practiced recognition.
+        </p>
+
+        <p>
+          Most awareness training is a slideshow people forget by lunchtime.
+          We wanted something closer to muscle memory: realistic scenarios,
+          actual decisions to make, and immediate feedback explaining what
+          gave the attack away.
+        </p>
+
+        <p>
+          Every scenario is fictional but modeled closely on real,
+          documented attack patterns. The red flags you learn to identify
+          here transfer directly to your inbox, messages, phone calls,
+          and workplace.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Principles Section -->
+  <section class="section section-muted">
+
+    <p class="eyebrow">Principles</p>
+
+    <h2 class="section-title">
+      What Guided The Build
+    </h2>
+
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <span class="principle-num">01</span>
+        <h3>Realism Over Gimmicks</h3>
+        <p>
+          Every scenario is written to resemble an actual email,
+          text, or phone call — not a quiz-show caricature.
+        </p>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-num">02</span>
+        <h3>Show The Evidence</h3>
+        <p>
+          Feedback highlights the exact clues that exposed the threat,
+          rather than simply saying right or wrong.
+        </p>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-num">03</span>
+        <h3>Legitimate Examples Too</h3>
+        <p>
+          Learning cybersecurity also means recognizing genuine messages.
+          Some scenarios are intentionally safe and trustworthy.
+        </p>
+      </div>
+
+      <div class="principle-card">
+        <span class="principle-num">04</span>
+        <h3>No Real Harm, Ever</h3>
+        <p>
+          This is a closed simulation. Nothing sends real messages,
+          contacts real people, or stores personal information.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+
+    <h2>Ready To Test Your Eye?</h2>
+
+    <p>
+      12 cases, around 6 minutes, with a complete breakdown at the end.
+    </p>
+
+    <a href="quiz.html" class="btn btn-primary btn-large">
+      Begin Review →
+    </a>
+
+  </section>
+
+</main>
+
+<footer class="app-footer">
+    <div class="footer-content">
+
+        <h3 class="footer-logo">
+            RED<span class="brand-accent">FLAG</span>
+        </h3>
+
+        <p class="footer-tagline">
+            Cybersecurity Awareness & Social Engineering Detection
+        </p>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-copy">
+            © 2026 REDFLAG • Educational Cybersecurity Simulation
+        </p>
+
+    </div>
+</footer>
+
+<script src="static/js/nav.js"></script>
+
+</body>
+</html>

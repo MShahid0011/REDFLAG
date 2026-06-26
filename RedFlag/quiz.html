@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Flag &mdash; Social Engineering Awareness Trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="app-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">&#9873;</span>
+      <span class="brand-text">RED<span class="brand-accent">FLAG</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="about.html" data-nav="about">About Us</a>
+      <a href="how-it-works.html" data-nav="how">How It Works</a>
+      <a href="threats.html" data-nav="threats">Live Threats</a>
+      <a href="quiz.html" data-nav="quiz" class="nav-cta">Start Quiz</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+  </div>
+  <div class="progress-track" aria-hidden="true">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+</header>
+
+<main id="app-root" class="app-root">
+
+  <!-- INTRO SCREEN -->
+  <section id="screen-intro" class="screen screen-intro">
+    <div class="intro-card">
+      <p class="eyebrow">Social Engineering Awareness Trainer</p>
+      <h1 class="intro-title">Can you spot<br>the deception?</h1>
+      <p class="intro-body">
+        You're about to review a series of real-world style emails, texts, and call transcripts.
+        Some are genuine. Some are attacks engineered to manipulate you.
+        Classify each one, then see exactly which details gave it away.
+      </p>
+      <div class="intro-stats">
+        <div class="intro-stat">
+          <span class="intro-stat-num">12</span>
+          <span class="intro-stat-label">Cases</span>
+        </div>
+        <div class="intro-stat">
+          <span class="intro-stat-num">4</span>
+          <span class="intro-stat-label">Attack types</span>
+        </div>
+        <div class="intro-stat">
+          <span class="intro-stat-num">~6</span>
+          <span class="intro-stat-label">Minutes</span>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-large" id="btn-start">Begin Review &rarr;</button>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="screen-quiz" class="screen screen-quiz hidden">
+
+    <div class="case-meta-row">
+      <span class="case-type-badge" id="case-type-badge">EMAIL</span>
+      <span class="case-progress-inline" id="case-progress">00 / 00</span>
+      <span class="case-difficulty" id="case-difficulty">DIFFICULTY: EASY</span>
+    </div>
+
+    <div class="exhibit-wrap">
+      <div class="exhibit" id="exhibit">
+        <!-- Rendered dynamically per scenario type -->
+      </div>
+    </div>
+
+    <div class="verdict-zone" id="verdict-zone">
+      <p class="verdict-prompt">Is this message legitimate or a social engineering attempt?</p>
+      <div class="verdict-buttons">
+        <button class="btn btn-verdict btn-legit" data-verdict="legit">
+          <span class="verdict-icon">&#10003;</span> Legitimate
+        </button>
+        <button class="btn btn-verdict btn-phish" data-verdict="phish">
+          <span class="verdict-icon">&#9888;</span> Social Engineering
+        </button>
+      </div>
+    </div>
+
+    <div class="feedback-zone hidden" id="feedback-zone">
+      <div class="feedback-header" id="feedback-header">
+        <!-- correct/incorrect banner -->
+      </div>
+      <div class="feedback-body" id="feedback-body">
+        <!-- red flags + explanation -->
+      </div>
+      <button class="btn btn-primary btn-large" id="btn-next">Next Case &rarr;</button>
+    </div>
+
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section id="screen-results" class="screen screen-results hidden">
+    <div class="results-card">
+      <p class="eyebrow">Debrief</p>
+      <h1 class="results-title" id="results-title">Assessment Complete</h1>
+
+      <div class="score-ring-wrap">
+        <svg class="score-ring" viewBox="0 0 200 200">
+          <circle class="score-ring-bg" cx="100" cy="100" r="86"></circle>
+          <circle class="score-ring-fill" id="score-ring-fill" cx="100" cy="100" r="86"></circle>
+        </svg>
+        <div class="score-ring-text">
+          <span class="score-ring-num" id="score-num">0</span>
+          <span class="score-ring-denom" id="score-denom">/ 12</span>
+        </div>
+      </div>
+
+      <p class="results-tagline" id="results-tagline">&nbsp;</p>
+
+      <div class="breakdown" id="breakdown">
+        <h2 class="breakdown-title">Performance by attack type</h2>
+        <div class="breakdown-rows" id="breakdown-rows"></div>
+      </div>
+
+      <div class="tips-block">
+        <h2 class="breakdown-title">Field notes &mdash; what to watch for</h2>
+        <ul class="tips-list">
+          <li><strong>Urgency &amp; threats.</strong> "Act now or lose access" is designed to short-circuit careful thinking.</li>
+          <li><strong>Mismatched domains.</strong> Check the actual sender address and link destination, not just the display name.</li>
+          <li><strong>Requests for secrecy.</strong> Legitimate requests rarely ask you to bypass normal verification or tell no one.</li>
+          <li><strong>Unsolicited contact.</strong> Real institutions rarely cold-call or text you demanding immediate sensitive action.</li>
+          <li><strong>Too good to be true.</strong> Unusually high pay, prizes, or refunds are common lures.</li>
+        </ul>
+      </div>
+
+      <button class="btn btn-primary btn-large" id="btn-restart">Run Again &rarr;</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+    <div class="footer-content">
+
+        <h3 class="footer-logo">
+            RED<span class="brand-accent">FLAG</span>
+        </h3>
+
+        <p class="footer-tagline">
+            Cybersecurity Awareness & Social Engineering Detection
+        </p>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-copy">
+            © 2026 REDFLAG • Educational Cybersecurity Simulation
+        </p>
+
+    </div>
+</footer>
+
+<script src="static/js/nav.js"></script>
+<script src="static/js/scenarios-data.js"></script>
+<script src="static/js/script.js"></script>
+</body>
+</html>

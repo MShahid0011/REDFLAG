@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — Red Flag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="app-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">&#9873;</span>
+      <span class="brand-text">RED<span class="brand-accent">FLAG</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="about.html" data-nav="about">About Us</a>
+      <a href="how-it-works.html" data-nav="how">How It Works</a>
+      <a href="threats.html" data-nav="threats">Live Threats</a>
+      <a href="quiz.html" data-nav="quiz" class="nav-cta">Start Quiz</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+  </div>
+</header>
+
+<main class="app-root wide">
+
+  <section class="page-intro">
+    <p class="eyebrow">How It Works</p>
+    <h1 class="page-title">From case file to verdict</h1>
+    <p class="page-intro-body">
+      No accounts, no setup, no tracking. Open a case, make a call, see exactly what
+      you got right or wrong. Here's the full walkthrough.
+    </p>
+  </section>
+
+  <!-- DETAILED STEPS -->
+  <section class="section">
+    <div class="walkthrough-row">
+      <div class="walkthrough-num">01</div>
+      <div class="walkthrough-content">
+        <h2>You're shown a realistic case</h2>
+        <p>
+          Each of the 12 cases renders as a faithful mockup of the medium it's attacking
+          through &mdash; an email client header and body, an SMS thread bubble, or a phone call
+          transcript. The sender, subject line, and message content are all shown exactly as
+          a real target would see them.
+        </p>
+        <span class="walkthrough-tag">EMAIL &middot; SMS &middot; PHONE CALL</span>
+      </div>
+    </div>
+
+    <div class="walkthrough-row">
+      <div class="walkthrough-num">02</div>
+      <div class="walkthrough-content">
+        <h2>You decide: legitimate, or social engineering?</h2>
+        <p>
+          Read the case the way you would in real life, then make a single call. There's no
+          trick question and no hidden third option &mdash; just the same binary judgment you make
+          every time something lands in your inbox or your phone buzzes.
+        </p>
+      </div>
+    </div>
+
+    <div class="walkthrough-row">
+      <div class="walkthrough-num">03</div>
+      <div class="walkthrough-content">
+        <h2>Red flags get highlighted, right in the message</h2>
+        <p>
+          If the case was an attack, every red-flag phrase &mdash; a spoofed domain, an urgent
+          deadline, a request for secrecy &mdash; gets highlighted directly inside the original
+          message text. Each one comes with a short note explaining exactly why it's
+          suspicious, so the lesson sticks to a concrete detail, not an abstract rule.
+        </p>
+      </div>
+    </div>
+
+    <div class="walkthrough-row">
+      <div class="walkthrough-num">04</div>
+      <div class="walkthrough-content">
+        <h2>An analyst note ties it together</h2>
+        <p>
+          Below the highlighted red flags, a short explanation names the attack type
+          (phishing, smishing, vishing, BEC fraud, and so on) and summarizes what made the
+          case dangerous, or, for legitimate cases, why it was safe to trust.
+        </p>
+      </div>
+    </div>
+
+    <div class="walkthrough-row">
+      <div class="walkthrough-num">05</div>
+      <div class="walkthrough-content">
+        <h2>A full debrief at the end</h2>
+        <p>
+          After all 12 cases, you get a score, a breakdown of accuracy by attack type
+          (email vs. SMS vs. phone calls), and a short set of field notes summarizing the
+          most important warning signs to carry with you afterward.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS DESIGN -->
+  <!-- CYBERSECURITY ATTACK DETECTION -->
+<section class="section section-muted">
+
+  <p class="eyebrow">Cybersecurity Awareness</p>
+
+  <h2 class="section-title">
+    How Cybersecurity Attacks Are Detected
+  </h2>
+
+  <div class="practice-grid">
+
+    <div class="practice-card">
+      <span class="practice-icon">📧</span>
+      <h3>Phishing Emails</h3>
+      <p>
+        Phishing emails often impersonate trusted organizations to steal
+        passwords or sensitive information. Warning signs include suspicious
+        links, urgent language, spelling mistakes, and unfamiliar sender
+        addresses.
+      </p>
+    </div>
+
+    <div class="practice-card">
+      <span class="practice-icon">📞</span>
+      <h3>Vishing Calls</h3>
+      <p>
+        Voice phishing (vishing) uses phone calls to trick victims into
+        sharing personal data or financial details. Detection involves
+        verifying the caller's identity and being cautious of pressure
+        tactics and unexpected requests.
+      </p>
+    </div>
+
+    <div class="practice-card">
+      <span class="practice-icon">📱</span>
+      <h3>Smishing Messages</h3>
+      <p>
+        Smishing attacks arrive through SMS or messaging apps. They usually
+        contain suspicious links, fake delivery notices, account warnings,
+        or offers designed to create urgency and encourage quick action.
+      </p>
+    </div>
+
+    <div class="practice-card">
+      <span class="practice-icon">🔳</span>
+      <h3>QR Code Scams</h3>
+      <p>
+        Cybercriminals may place malicious QR codes on posters, emails,
+        or advertisements. Before scanning, users should verify the source
+        and inspect the destination URL for legitimacy.
+      </p>
+    </div>
+
+    <div class="practice-card">
+      <span class="practice-icon">👤</span>
+      <h3>Impersonation Attacks</h3>
+      <p>
+        Attackers often pretend to be managers, banks, government agencies,
+        or technical support staff. Verification through official channels
+        helps identify and prevent these scams.
+      </p>
+    </div>
+
+    <div class="practice-card">
+      <span class="practice-icon">🚩</span>
+      <h3>Common Red Flags</h3>
+      <p>
+        Unexpected requests, threats, urgency, secrecy, suspicious links,
+        unusual payment demands, and requests for personal information are
+        among the most common indicators of social engineering attacks.
+      </p>
+    </div>
+
+    <div class="practice-card">
+      <span class="practice-icon">🔗</span>
+      <h3>Malicious Links</h3>
+      <p>
+        Hover over links before clicking. Misspelled domains, unusual URLs,
+        and redirects to unfamiliar websites are common warning signs.
+      </p>
+    </div>
+
+    <div class="practice-card">
+      <span class="practice-icon">📎</span>
+      <h3>Dangerous Attachments</h3>
+      <p>
+        Unexpected PDF, ZIP, DOCX, or executable files may contain malware.
+        Verify the sender and purpose before opening any attachment.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer class="app-footer">
+    <div class="footer-content">
+
+        <h3 class="footer-logo">
+            RED<span class="brand-accent">FLAG</span>
+        </h3>
+
+        <p class="footer-tagline">
+            Cybersecurity Awareness & Social Engineering Detection
+        </p>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-copy">
+            © 2026 REDFLAG • Educational Cybersecurity Simulation
+        </p>
+
+    </div>
+</footer>
+
+<script src="static/js/nav.js"></script>
+</body>
+</html>

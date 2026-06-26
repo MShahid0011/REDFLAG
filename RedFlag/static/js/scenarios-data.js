@@ -1,0 +1,277 @@
+const SCENARIOS_DATA = [
+  {
+    "id": "s01",
+    "type": "email",
+    "difficulty": "easy",
+    "isPhishing": true,
+    "sender": "IT-Support@secure-paypa1.com",
+    "subject": "Urgent: Your account will be suspended in 24 hours",
+    "content": "Dear Customer,\n\nWe detected unusual activity on your account. Your account will be SUSPENDED within 24 hours unless you verify your identity immediately.\n\nClick here to verify now: http://secure-paypa1-verify.com/login\n\nFailure to act will result in permanent loss of access.\n\nPayPal Security Team",
+    "redFlags": [
+      {
+        "tag": "spoofed_domain",
+        "snippet": "secure-paypa1.com",
+        "note": "Domain uses a '1' instead of 'l' \u2014 a classic lookalike domain trick."
+      },
+      {
+        "tag": "urgency",
+        "snippet": "SUSPENDED within 24 hours",
+        "note": "Artificial urgency pressures you to act before thinking carefully."
+      },
+      {
+        "tag": "generic_greeting",
+        "snippet": "Dear Customer",
+        "note": "Real companies usually use your actual name, not a generic greeting."
+      },
+      {
+        "tag": "suspicious_link",
+        "snippet": "secure-paypa1-verify.com/login",
+        "note": "The link domain doesn't match PayPal's real domain."
+      }
+    ],
+    "explanation": "This is a classic credential-phishing email. The lookalike domain, urgent threat, and mismatched link are all textbook signs of an attack designed to steal your login details."
+  },
+  {
+    "id": "s02",
+    "type": "email",
+    "difficulty": "medium",
+    "isPhishing": false,
+    "sender": "no-reply@github.com",
+    "subject": "[GitHub] Your password was changed",
+    "content": "Hi alex-dev,\n\nYour GitHub password was changed on June 20, 2026 at 14:32 UTC.\n\nIf you made this change, no further action is needed.\n\nIf you did not make this change, please reset your password immediately and contact GitHub Support.\n\nThanks,\nThe GitHub Team",
+    "redFlags": [],
+    "explanation": "This is a legitimate security notification. It addresses the user by their actual username, doesn't ask you to click an urgent link, gives a calm and specific timestamp, and offers a safe next step (reset password directly through the official site) rather than an embedded link demanding immediate action."
+  },
+  {
+    "id": "s03",
+    "type": "sms",
+    "difficulty": "easy",
+    "isPhishing": true,
+    "sender": "+1 (302) 555-0199",
+    "subject": "Delivery Notification",
+    "content": "USPS: Your package could not be delivered due to an incomplete address. Update your delivery details within 12 hours to avoid return: usps-redelivery.info/track",
+    "redFlags": [
+      {
+        "tag": "spoofed_domain",
+        "snippet": "usps-redelivery.info",
+        "note": "USPS does not use .info domains \u2014 their real domain is usps.com."
+      },
+      {
+        "tag": "urgency",
+        "snippet": "within 12 hours",
+        "note": "Tight artificial deadlines are a pressure tactic."
+      },
+      {
+        "tag": "unsolicited_link",
+        "snippet": "usps-redelivery.info/track",
+        "note": "Unexpected delivery texts with links are one of the most common smishing patterns."
+      }
+    ],
+    "explanation": "This is a smishing (SMS phishing) attempt impersonating a delivery service. The non-official domain and urgency are designed to get you to enter personal or payment information on a fake tracking page."
+  },
+  {
+    "id": "s04",
+    "type": "call",
+    "difficulty": "medium",
+    "isPhishing": true,
+    "sender": "Unknown Caller \u2014 claims to be 'Microsoft Support'",
+    "subject": "Vishing Call Transcript",
+    "content": "\"Hello, this is Daniel from Microsoft Technical Support. We've detected a serious virus on your computer that is sending your personal data to hackers right now. I need you to stay on the line and open a program called AnyDesk so I can remove the virus before it spreads. This is extremely urgent \u2014 please don't hang up.\"",
+    "redFlags": [
+      {
+        "tag": "unsolicited_contact",
+        "snippet": "Microsoft Technical Support",
+        "note": "Microsoft does not proactively call customers about virus detections."
+      },
+      {
+        "tag": "urgency",
+        "snippet": "extremely urgent \u2014 please don't hang up",
+        "note": "Isolating you and rushing you prevents you from verifying the claim."
+      },
+      {
+        "tag": "remote_access_request",
+        "snippet": "open a program called AnyDesk",
+        "note": "Asking you to install remote access software is a major red flag for vishing/tech-support scams."
+      }
+    ],
+    "explanation": "This is a vishing (voice phishing) tech-support scam. The caller fabricates an urgent problem and pushes for remote access software, which gives attackers full control of your device."
+  },
+  {
+    "id": "s05",
+    "type": "email",
+    "difficulty": "hard",
+    "isPhishing": true,
+    "sender": "ceo.office@yourcompany-corp.com",
+    "subject": "Quick favor \u2014 need this handled discreetly",
+    "content": "Hi,\n\nI'm in back-to-back meetings and can't talk right now. I need you to process an urgent wire transfer to a vendor before end of day. Please keep this confidential for now \u2014 I'll explain everything once I'm out of meetings.\n\nLet me know once it's done.\n\nThanks,\nMichael\nCEO",
+    "redFlags": [
+      {
+        "tag": "spoofed_domain",
+        "snippet": "yourcompany-corp.com",
+        "note": "Slightly altered version of the real company domain \u2014 easy to miss at a glance."
+      },
+      {
+        "tag": "urgency",
+        "snippet": "before end of day",
+        "note": "Time pressure discourages verification through normal channels."
+      },
+      {
+        "tag": "secrecy_request",
+        "snippet": "keep this confidential for now",
+        "note": "Requests for secrecy are designed to prevent you from checking with colleagues."
+      },
+      {
+        "tag": "authority_pressure",
+        "snippet": "Michael, CEO",
+        "note": "Impersonating an authority figure pressures the target to comply without question."
+      }
+    ],
+    "explanation": "This is Business Email Compromise (BEC) / CEO fraud. It combines a subtly spoofed domain, urgency, secrecy, and authority pressure \u2014 a dangerous combination because it specifically targets workplace trust and hierarchy."
+  },
+  {
+    "id": "s06",
+    "type": "email",
+    "difficulty": "medium",
+    "isPhishing": true,
+    "sender": "careers@global-talent-hire.net",
+    "subject": "Congratulations! You've been selected for a remote position",
+    "content": "Dear Applicant,\n\nCongratulations! Based on your profile, you have been selected for a Remote Data Entry position paying $45/hour.\n\nTo proceed, please provide your full name, date of birth, Social Security Number, and bank account details so we can set up your payroll and ship your work laptop.\n\nReply within 48 hours to confirm your position.\n\nHR Department",
+    "redFlags": [
+      {
+        "tag": "too_good_to_be_true",
+        "snippet": "$45/hour",
+        "note": "Unusually high pay for vague work is a common scam lure."
+      },
+      {
+        "tag": "sensitive_info_request",
+        "snippet": "Social Security Number, and bank account details",
+        "note": "Legitimate employers don't request SSN or banking details before any interview or formal offer."
+      },
+      {
+        "tag": "generic_greeting",
+        "snippet": "Dear Applicant",
+        "note": "No personalization, despite claiming to have reviewed your profile."
+      },
+      {
+        "tag": "urgency",
+        "snippet": "within 48 hours",
+        "note": "Forces quick action before the target can research the company."
+      }
+    ],
+    "explanation": "This is a fake job offer scam designed to harvest sensitive personal and financial information under the guise of payroll setup."
+  },
+  {
+    "id": "s07",
+    "type": "sms",
+    "difficulty": "hard",
+    "isPhishing": false,
+    "sender": "+1 (800) 432-1000",
+    "subject": "Bank Alert",
+    "content": "Chase Fraud Alert: We detected a $1 charge at a gas station. Did you make this purchase? Reply YES or NO. We will never ask for your PIN or password.",
+    "redFlags": [],
+    "explanation": "This resembles a legitimate fraud alert. It asks a simple yes/no question, doesn't contain a link, doesn't request sensitive information, and explicitly states the bank will never ask for your PIN or password \u2014 a common practice for real bank alerts. Always verify by calling the number on the back of your card if unsure."
+  },
+  {
+    "id": "s08",
+    "type": "email",
+    "difficulty": "medium",
+    "isPhishing": true,
+    "sender": "billing@netflix-account-update.com",
+    "subject": "Your payment method has expired",
+    "content": "Hello,\n\nYour payment method on file has expired. To avoid interruption of your service, please update your billing information within 24 hours.\n\nUpdate Payment Method: http://netflix-billing-update.com/pay\n\nThank you,\nNetflix Billing Team",
+    "redFlags": [
+      {
+        "tag": "spoofed_domain",
+        "snippet": "netflix-account-update.com",
+        "note": "Netflix's real domain is netflix.com \u2014 this is a lookalike domain."
+      },
+      {
+        "tag": "urgency",
+        "snippet": "within 24 hours",
+        "note": "Pressure to act fast before verifying."
+      },
+      {
+        "tag": "suspicious_link",
+        "snippet": "netflix-billing-update.com/pay",
+        "note": "Link domain does not match the official Netflix domain."
+      }
+    ],
+    "explanation": "This is a billing-themed phishing email designed to capture payment card details through a fake update page."
+  },
+  {
+    "id": "s09",
+    "type": "call",
+    "difficulty": "hard",
+    "isPhishing": false,
+    "sender": "Pharmacy Automated Line",
+    "subject": "Prescription Refill Reminder",
+    "content": "\"This is an automated call from Riverside Pharmacy. Your prescription is ready for pickup. Our hours are 9 AM to 7 PM, Monday through Saturday. No action is needed if you do not wish to pick it up today. Thank you, and have a great day.\"",
+    "redFlags": [],
+    "explanation": "This is a routine, legitimate automated pharmacy reminder. It doesn't ask for any personal information, doesn't pressure you, and doesn't request any action beyond an optional pickup."
+  },
+  {
+    "id": "s10",
+    "type": "email",
+    "difficulty": "hard",
+    "isPhishing": true,
+    "sender": "invoices@vendor-supplyco.com",
+    "subject": "Invoice #88213 Past Due \u2014 Action Required",
+    "content": "Hello,\n\nOur records show Invoice #88213 ($4,250.00) is now 15 days past due. To avoid late fees and service suspension, please remit payment using the updated banking details below:\n\nBank: First Continental Trust\nAccount: 4471-998-2310\nRouting: 071000013\n\nPlease confirm once payment has been sent.\n\nRegards,\nAccounts Receivable",
+    "redFlags": [
+      {
+        "tag": "updated_payment_details",
+        "snippet": "updated banking details below",
+        "note": "A sudden change in banking details is one of the strongest signs of invoice fraud."
+      },
+      {
+        "tag": "urgency",
+        "snippet": "avoid late fees and service suspension",
+        "note": "Threat of penalty pushes for quick, unverified payment."
+      },
+      {
+        "tag": "no_personalization",
+        "snippet": "Hello,",
+        "note": "No reference to a real contact, project, or prior correspondence."
+      }
+    ],
+    "explanation": "This is invoice fraud / vendor email compromise. Attackers impersonate a known vendor and quietly swap in new banking details, redirecting legitimate payments to themselves."
+  },
+  {
+    "id": "s11",
+    "type": "sms",
+    "difficulty": "medium",
+    "isPhishing": true,
+    "sender": "+1 (415) 555-7281",
+    "subject": "Account Security",
+    "content": "Apple ID Alert: Your account was used to sign in on a new device near Moscow, Russia. If this wasn't you, secure your account now: appleid-secure-verification.com",
+    "redFlags": [
+      {
+        "tag": "fear_tactic",
+        "snippet": "new device near Moscow, Russia",
+        "note": "Mentioning a threatening location is designed to trigger panic and quick action."
+      },
+      {
+        "tag": "spoofed_domain",
+        "snippet": "appleid-secure-verification.com",
+        "note": "Apple's real domain is apple.com \u2014 this is not an official Apple domain."
+      },
+      {
+        "tag": "unsolicited_link",
+        "snippet": "secure your account now",
+        "note": "Legitimate Apple alerts direct you to sign in via the official Apple ID website or device settings, not an unfamiliar link."
+      }
+    ],
+    "explanation": "This is a smishing attack using fear (a foreign login location) to rush victims into entering their Apple ID credentials on a fake site."
+  },
+  {
+    "id": "s12",
+    "type": "email",
+    "difficulty": "easy",
+    "isPhishing": false,
+    "sender": "notifications@slack.com",
+    "subject": "You have 3 new messages in #project-alpha",
+    "content": "Hi Jordan,\n\nYou have 3 unread messages in #project-alpha from the last 24 hours.\n\nOpen Slack to catch up, or adjust your notification settings anytime from your preferences.\n\n\u2014 The Slack Team",
+    "redFlags": [],
+    "explanation": "This is a standard, low-stakes notification email. It's personalized, doesn't request any sensitive information or urgent action, and matches typical legitimate product notification patterns."
+  }
+];
