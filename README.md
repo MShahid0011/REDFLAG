@@ -104,9 +104,3 @@ Each entry looks like:
 The snippet text in each red flag must match the text exactly as it appears
 in content or sender, so the app can find and highlight it.
 
-## Notes for your internship report
-
-This project is a self-contained simulator: it does not send real
-emails/SMS, store personal data, or contact real users. It's intended
-purely as an educational security-awareness training tool, and runs
-entirely client-side in the browser.
